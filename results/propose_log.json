@@ -1,0 +1,70 @@
+{
+  "model": "qwen3-coder:30b",
+  "lemmas": [
+    {
+      "name": "nil_tail",
+      "statement": "linkValid entryHash ph [] = true",
+      "proof": "rw [linkValid_def],\nsimp [entryHash],\n rfl",
+      "pass": false,
+      "lean_secs": 0.18,
+      "error": "/tmp/tmpqkqwx6_r.lean:8:6: error(lean.unknownIdentifier): Unknown identifier `linkValid_def`\n/tmp/tmpqkqwx6_r.lean:7:59: error: unsolved goals\nD H : Type\ninst\u271d : DecidableEq H\nentryHash : Entry D H \u2192 H\nph : H\n\u22a2 linkValid entryHash ph [] = true\n/tmp/tmpqkqwx6_r.lean:8:20: error: unexpected token ','; expected command"
+    },
+    {
+      "name": "nil_chain",
+      "statement": "chainValid entryHash H0 [] = true",
+      "proof": "rw [chainValid_def],\nsimp [chainValid_prefix_nil],",
+      "pass": false,
+      "lean_secs": 0.16,
+      "error": "/tmp/tmpyagxd87m.lean:8:6: error(lean.unknownIdentifier): Unknown identifier `chainValid_def`\n/tmp/tmpyagxd87m.lean:7:61: error: unsolved goals\nD H : Type\ninst\u271d : DecidableEq H\nentryHash : Entry D H \u2192 H\nH0 : H\n\u22a2 chainValid entryHash H0 [] = true\n/tmp/tmpyagxd87m.lean:8:21: error: unexpected token ','; expected command"
+    },
+    {
+      "name": "nextPrev_nil",
+      "statement": "nextPrev entryHash ph [] = ph",
+      "proof": "rw [nextPrev_nil]",
+      "pass": false,
+      "lean_secs": 0.12,
+      "error": "/tmp/tmpucnca4bg.lean:8:6: error(lean.unknownIdentifier): Unknown identifier `nextPrev_nil`\n/tmp/tmpucnca4bg.lean:7:60: error: unsolved goals\nD H : Type\ninst\u271d : DecidableEq H\nentryHash : Entry D H \u2192 H\nph : H\n\u22a2 nextPrev entryHash ph [] = ph"
+    },
+    {
+      "name": "nextPrev_one",
+      "statement": "(a : Entry D H) \u2192 nextPrev entryHash ph [a] = entryHash a",
+      "proof": "rw [nextPrev_concat],\ndsimp [nextPrev],\nrw [linkValid_next],\n rfl,\nexact linkValid_prefix _ _ _,\nexact chainValid_prefix _ _ _,",
+      "pass": false,
+      "lean_secs": 0.17,
+      "error": "/tmp/tmpvar9rgk2.lean:8:6: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern\n  nextPrev ?entryHash ?ph (?l ++ [?a])\nin the target expression\n  \u2200 (a : Entry D H), nextPrev entryHash ph [a] = entryHash a\n\nD H : Type\ninst\u271d : DecidableEq H\nentryHash : Entry D H \u2192 H\nph : H\n\u22a2 \u2200 (a : Entry D H), nextPrev entryHash ph [a] = entryHash a\n/tmp/tmpvar9rgk2.lean:8:22: error: unexpected token ','; expected command"
+    },
+    {
+      "name": "single_link",
+      "statement": "linkValid entryHash ph [\u27e8p, ph\u27e9] = true",
+      "proof": "rw [linkValid_prefix],\nsimp,\nexact true.intro,",
+      "pass": false,
+      "lean_secs": 0.13,
+      "error": "/tmp/tmpikk5crn4.lean:7:69: error: unsolved goals\ncase l\u2082\nD H : Type\ninst\u271d : DecidableEq H\nentryHash : Entry D H \u2192 H\nph : H\np : D\n\u22a2 List (Entry D H)\n\ncase a\nD H : Type\ninst\u271d : DecidableEq H\nentryHash : Entry D H \u2192 H\nph : H\np : D\n\u22a2 linkValid entryHash ph ([{ payload := p, prev := ph }] ++ ?l\u2082) = true\n/tmp/tmpikk5crn4.lean:8:23: error: unexpected token ','; expected command"
+    },
+    {
+      "name": "add_zero",
+      "statement": "(n : Nat) \u2192 n + 0 = n",
+      "proof": "induction n with\n| zero => simp\n| succ n ih => simp [Nat.succ_add_zero, ih]",
+      "pass": false,
+      "lean_secs": 0.13,
+      "error": "/tmp/tmps3x4pqqz.lean:8:12: error(lean.unknownIdentifier): Unknown identifier `n`\n/tmp/tmps3x4pqqz.lean:8:2: error: Tactic `induction` failed: major premise type is not an inductive type\n  ?m.9\n\nExplanation: the `induction` tactic is for constructor-based reasoning as well as for applying custom induction principles with a 'using' clause or a registered '@[induction_eliminator]' theorem. The above type neither is an inductive type nor has a registered theorem.\n\nx\u271d : ?m.9\n\u22a2 \u2200 (n : Nat), n + 0 = n"
+    },
+    {
+      "name": "append_nil_prefix",
+      "statement": "(l : List (Entry D H)) \u2192 chainValid entryHash H0 (l ++ []) = true \u2192 chainValid entryHash H0 l = true",
+      "proof": "by\n  intro l hl\n  rw [\u2190 chainValid_prefix] at hl\n  exact hl",
+      "pass": false,
+      "lean_secs": 0.15,
+      "error": "/tmp/tmp7035zo91.lean:7:136: error: unsolved goals\nD H : Type\ninst\u271d : DecidableEq H\nentryHash : Entry D H \u2192 H\nH0 : H\n\u22a2 \u2200 (l : List (Entry D H)), chainValid entryHash H0 (l ++ []) = true \u2192 chainValid entryHash H0 l = true\n/tmp/tmp7035zo91.lean:8:2: error: unexpected token 'by'; expected command"
+    },
+    {
+      "name": "concrete_nil",
+      "statement": "chainValid (D := Nat) (H := Nat) (fun _ => 0) 0 [] = true",
+      "proof": "rw [chainValid_eq_true]; exact chainValid_prefix_nil",
+      "pass": false,
+      "lean_secs": 0.17,
+      "error": "/tmp/tmp2_222bjz.lean:8:6: error(lean.unknownIdentifier): Unknown identifier `chainValid_eq_true`\n/tmp/tmp2_222bjz.lean:7:88: error: unsolved goals\n\u22a2 chainValid (fun x => 0) 0 [] = true"
+    }
+  ],
+  "pass_rate": "0/8"
+}

@@ -1,0 +1,4 @@
+name = "chain-proofs"
+
+[[lean_lib]]
+name = "ChainProofs"

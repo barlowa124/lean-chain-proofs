@@ -1,0 +1,9 @@
+{"plugins": [],
+ "package": "chain-proofs",
+ "options": {},
+ "name": "ChainProofs.Spec",
+ "isModule": false,
+ "importArts":
+ {"ChainProofs.Chain":
+  [["/home/asdf/Work/lean-chain-proofs/.lake/build/lib/lean/ChainProofs/Chain.olean"]]},
+ "dynlibs": []}

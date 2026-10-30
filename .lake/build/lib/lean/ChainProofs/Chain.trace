@@ -1,0 +1,34 @@
+{"synthetic": false,
+ "schemaVersion": "2025-09-10",
+ "outputs":
+ {"o": ["dafe949d93a1b21d.olean"],
+  "m": false,
+  "i": "cfb2ca6c90cca2f0.ilean",
+  "c": "b555adde504ba999.c"},
+ "log":
+ [{"message":
+   ".> LEAN_PATH=/home/asdf/Work/lean-chain-proofs/.lake/build/lib/lean /home/asdf/.local/opt/lean/bin/lean /home/asdf/Work/lean-chain-proofs/ChainProofs/Chain.lean -o /home/asdf/Work/lean-chain-proofs/.lake/build/lib/lean/ChainProofs/Chain.olean -i /home/asdf/Work/lean-chain-proofs/.lake/build/lib/lean/ChainProofs/Chain.ilean -c /home/asdf/Work/lean-chain-proofs/.lake/build/ir/ChainProofs/Chain.c --setup /home/asdf/Work/lean-chain-proofs/.lake/build/ir/ChainProofs/Chain.setup.json --json",
+   "level": "trace"},
+  {"message":
+   "ChainProofs/Chain.lean:78:0: automatically included section variable(s) unused in theorem `ChainProofs.nextPrev_concat`:\n  [DecidableEq H]\nconsider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:\n  omit [DecidableEq H] in theorem ...\n\nNote: This linter can be disabled with `set_option linter.unusedSectionVars false`",
+   "level": "warning"}],
+ "inputs":
+ [["deps",
+   [["«chain-proofs»/ChainProofs:extraDep",
+     [["@«chain-proofs»:extraDep", "00000000000006bb"]]],
+    ["imports", "00000000000006bb"]]],
+  ["libs",
+   [["import dynlibs", "00000000000006bb"],
+    ["package external libraries", "00000000000006bb"],
+    ["module dynlibs", "00000000000006bb"],
+    ["module plugins", "00000000000006bb"]]],
+  ["Lean 4.35.0, commit eb6cafb7290e8bd5f2937522d8d804f58f02bafc",
+   "407ce514b71d5a10"],
+  ["/home/asdf/Work/lean-chain-proofs/ChainProofs/Chain.lean",
+   "4f0b0efbb52b7bf5"],
+  ["options", "00000000000006bb"],
+  ["isModule: false", "feefd2a0d3a1847e"],
+  ["Module.name: ChainProofs.Chain", "f52995dc6c1f8810"],
+  ["Package.id?: (some chain-proofs)", "da253b288e62c2cd"],
+  ["Module.leanArgs: #[]", "00000000000006bb"]],
+ "depHash": "b61dca72c9ca9f6b"}

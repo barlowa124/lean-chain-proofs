@@ -1,0 +1,192 @@
+[
+  {
+    "file": "ChainProofs/Chain.lean",
+    "decl": "/-",
+    "ms": 0
+  },
+  {
+    "file": "ChainProofs/Chain.lean",
+    "decl": "namespace ChainProofs",
+    "ms": 0
+  },
+  {
+    "file": "ChainProofs/Chain.lean",
+    "decl": "structure Entry",
+    "ms": 4
+  },
+  {
+    "file": "ChainProofs/Chain.lean",
+    "decl": "variable {D H : Type} [DecidableEq H]",
+    "ms": 0
+  },
+  {
+    "file": "ChainProofs/Chain.lean",
+    "decl": "variable (entryHash : Entry D H \u2192 H) (H0 : H)",
+    "ms": 0
+  },
+  {
+    "file": "ChainProofs/Chain.lean",
+    "decl": "def linkValid",
+    "ms": 3
+  },
+  {
+    "file": "ChainProofs/Chain.lean",
+    "decl": "def chainValid",
+    "ms": 2
+  },
+  {
+    "file": "ChainProofs/Chain.lean",
+    "decl": "def nextPrev",
+    "ms": 2
+  },
+  {
+    "file": "ChainProofs/Chain.lean",
+    "decl": "/-! ## Prefix (append-only) lemmas -/",
+    "ms": 0
+  },
+  {
+    "file": "ChainProofs/Chain.lean",
+    "decl": "theorem linkValid_prefix",
+    "ms": 2
+  },
+  {
+    "file": "ChainProofs/Chain.lean",
+    "decl": "theorem chainValid_prefix",
+    "ms": 1
+  },
+  {
+    "file": "ChainProofs/Chain.lean",
+    "decl": "theorem linkValid_next",
+    "ms": 1
+  },
+  {
+    "file": "ChainProofs/Chain.lean",
+    "decl": "theorem nextPrev_concat",
+    "ms": 1
+  },
+  {
+    "file": "ChainProofs/Chain.lean",
+    "decl": "/-! ## Tamper and deletion detection",
+    "ms": 0
+  },
+  {
+    "file": "ChainProofs/Chain.lean",
+    "decl": "theorem linkValid_false_of_bad_link",
+    "ms": 1
+  },
+  {
+    "file": "ChainProofs/Chain.lean",
+    "decl": "theorem tamper_detected",
+    "ms": 1
+  },
+  {
+    "file": "ChainProofs/Chain.lean",
+    "decl": "theorem deletion_detected",
+    "ms": 2
+  },
+  {
+    "file": "ChainProofs/Chain.lean",
+    "decl": "end ChainProofs",
+    "ms": 0
+  },
+  {
+    "file": "ChainProofs/Spec.lean",
+    "decl": "import ChainProofs.Chain",
+    "ms": 0
+  },
+  {
+    "file": "ChainProofs/Spec.lean",
+    "decl": "instance for",
+    "ms": 0
+  },
+  {
+    "file": "ChainProofs/Spec.lean",
+    "decl": "namespace ChainProofs",
+    "ms": 0
+  },
+  {
+    "file": "ChainProofs/Spec.lean",
+    "decl": "def demoHash",
+    "ms": 1
+  },
+  {
+    "file": "ChainProofs/Spec.lean",
+    "decl": "def H0",
+    "ms": 1
+  },
+  {
+    "file": "ChainProofs/Spec.lean",
+    "decl": "def e1",
+    "ms": 0
+  },
+  {
+    "file": "ChainProofs/Spec.lean",
+    "decl": "def e2",
+    "ms": 1
+  },
+  {
+    "file": "ChainProofs/Spec.lean",
+    "decl": "def e3",
+    "ms": 0
+  },
+  {
+    "file": "ChainProofs/Spec.lean",
+    "decl": "def good",
+    "ms": 1
+  },
+  {
+    "file": "ChainProofs/Spec.lean",
+    "decl": "def tampered",
+    "ms": 1
+  },
+  {
+    "file": "ChainProofs/Spec.lean",
+    "decl": "def deleted",
+    "ms": 1
+  },
+  {
+    "file": "ChainProofs/Spec.lean",
+    "decl": "def appended",
+    "ms": 2
+  },
+  {
+    "file": "ChainProofs/Spec.lean",
+    "decl": "def badAppend",
+    "ms": 2
+  },
+  {
+    "file": "ChainProofs/Spec.lean",
+    "decl": "#eval chainValid demoHash H0 good",
+    "ms": 0
+  },
+  {
+    "file": "ChainProofs/Spec.lean",
+    "decl": "#eval chainValid demoHash H0 tampered",
+    "ms": 0
+  },
+  {
+    "file": "ChainProofs/Spec.lean",
+    "decl": "#eval chainValid demoHash H0 deleted",
+    "ms": 0
+  },
+  {
+    "file": "ChainProofs/Spec.lean",
+    "decl": "#eval chainValid demoHash H0 appended",
+    "ms": 0
+  },
+  {
+    "file": "ChainProofs/Spec.lean",
+    "decl": "#eval chainValid demoHash H0 badAppend",
+    "ms": 0
+  },
+  {
+    "file": "ChainProofs/Spec.lean",
+    "decl": "#eval nextPrev demoHash 0 good",
+    "ms": 0
+  },
+  {
+    "file": "ChainProofs/Spec.lean",
+    "decl": "end ChainProofs",
+    "ms": 0
+  }
+]

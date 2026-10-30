@@ -1,0 +1,70 @@
+{
+  "model": "gemma3:27b",
+  "lemmas": [
+    {
+      "name": "nil_tail",
+      "statement": "linkValid entryHash ph [] = true",
+      "proof": "rfl",
+      "pass": true,
+      "lean_secs": 0.19,
+      "error": ""
+    },
+    {
+      "name": "nil_chain",
+      "statement": "chainValid entryHash H0 [] = true",
+      "proof": "induction [] with\n| nil => rfl",
+      "pass": false,
+      "lean_secs": 0.18,
+      "error": "/tmp/tmpoa6tueks.lean:8:2: error: Alternative `cons` has not been provided"
+    },
+    {
+      "name": "nextPrev_nil",
+      "statement": "nextPrev entryHash ph [] = ph",
+      "proof": "induction [] with\n| nil => rfl",
+      "pass": false,
+      "lean_secs": 0.15,
+      "error": "/tmp/tmpna41h1kr.lean:8:2: error: Alternative `cons` has not been provided"
+    },
+    {
+      "name": "nextPrev_one",
+      "statement": "(a : Entry D H) \u2192 nextPrev entryHash ph [a] = entryHash a",
+      "proof": "induction a with\n| Entry p h => rfl",
+      "pass": false,
+      "lean_secs": 0.19,
+      "error": "/tmp/tmpmr91untj.lean:8:12: error(lean.unknownIdentifier): Unknown identifier `a`\n/tmp/tmpmr91untj.lean:8:2: error: Tactic `induction` failed: major premise type is not an inductive type\n  ?m.7\n\nExplanation: the `induction` tactic is for constructor-based reasoning as well as for applying custom induction principles with a 'using' clause or a registered '@[induction_eliminator]' theorem. The above type neither is an inductive type nor has a registered theorem.\n\nD H : Type\ninst\u271d : DecidableEq H\nentryHash : Entry D H \u2192 H\nph : H\nx\u271d : ?m.7\n\u22a2 \u2200 (a : Entry D H), nextPrev entryHash ph [a] = entryHash a"
+    },
+    {
+      "name": "single_link",
+      "statement": "linkValid entryHash ph [\u27e8p, ph\u27e9] = true",
+      "proof": "apply linkValid_prefix\napply and_true\napply eq_true\nrw [entryHash]\nsimp",
+      "pass": false,
+      "lean_secs": 0.14,
+      "error": "/tmp/tmpvsa80yo5.lean:9:2: error: Tactic `apply` failed: could not unify the conclusion of `and_true`\n  (?p \u2227 True) = ?p\nwith the goal\n  linkValid entryHash ph ([{ payload := p, prev := ph }] ++ ?l\u2082) = true\n\nNote: The full type of `and_true` is\n  \u2200 (p : Prop), (p \u2227 True) = p\n\ncase a\nD H : Type\ninst\u271d : DecidableEq H\nentryHash : Entry D H \u2192 H\nph : H\np : D\n\u22a2 linkValid entryHash ph ([{ payload := p, prev := ph }] ++ ?l\u2082) = true"
+    },
+    {
+      "name": "add_zero",
+      "statement": "(n : Nat) \u2192 n + 0 = n",
+      "proof": "rfl",
+      "pass": false,
+      "lean_secs": 0.14,
+      "error": "/tmp/tmpnah6sm09.lean:8:2: error: Tactic `rfl` failed: Expected the goal to be a binary relation\n\nHint: Reflexivity tactics can only be used on goals of the form `x ~ x` or `R x x`\n\n\u22a2 \u2200 (n : Nat), n + 0 = n"
+    },
+    {
+      "name": "append_nil_prefix",
+      "statement": "(l : List (Entry D H)) \u2192 chainValid entryHash H0 (l ++ []) = true \u2192 chainValid entryHash H0 l = true",
+      "proof": "induction l using (rec (l :: List (Entry D H)))\ncase nil =>\n  simp\ncase cons h t IH =>\n  simp [chainValid_prefix, nextPrev_concat]\n  apply and_intro\n  . apply linkValid_next\n  . apply IH\n    assumption",
+      "pass": false,
+      "lean_secs": 0.17,
+      "error": "/tmp/tmpmxgo7929.lean:8:12: error(lean.unknownIdentifier): Unknown identifier `l`\n/tmp/tmpmxgo7929.lean:8:21: error(lean.unknownIdentifier): Unknown identifier `rec`"
+    },
+    {
+      "name": "concrete_nil",
+      "statement": "chainValid (D := Nat) (H := Nat) (fun _ => 0) 0 [] = true",
+      "proof": "induction [] with\n| nil => rfl\n| cons h t ih =>\n  chainValid_prefix h 0 t ih",
+      "pass": false,
+      "lean_secs": 0.14,
+      "error": "/tmp/tmpez1l06ot.lean:11:5: error: unknown tactic\n/tmp/tmpez1l06ot.lean:10:16: error: unsolved goals\ncase cons\nh : Entry Nat Nat\nt : List (Entry Nat Nat)\nih : chainValid (fun x => 0) 0 t = true\n\u22a2 chainValid (fun x => 0) 0 (h :: t) = true"
+    }
+  ],
+  "pass_rate": "1/8"
+}
